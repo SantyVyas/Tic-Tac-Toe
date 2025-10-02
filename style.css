@@ -1,64 +1,118 @@
+/* General Styling */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f9;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100vh;
   margin: 0;
+  color: white;
 }
 
-h1 {
-  color: #333;
-  margin-bottom: 20px;
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  animation: glow 2s infinite alternate;
 }
 
-.game-container {
-  text-align: center;
+@keyframes glow {
+  from { text-shadow: 0 0 5px #fff; }
+  to { text-shadow: 0 0 20px #00eaff, 0 0 30px #00c3ff; }
 }
 
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  gap: 20px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.scoreboard p {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Game Board */
 .board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
-  gap: 5px;
+  gap: 8px;
   margin: 20px auto;
 }
 
 .cell {
   width: 100px;
   height: 100px;
-  background: white;
-  border: 2px solid #333;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
   font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: background 0.3s;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s, background 0.3s;
 }
 
 .cell:hover {
-  background: #f1f1f1;
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.25);
 }
 
+.cell.taken {
+  cursor: not-allowed;
+}
+
+/* Status */
 #status {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin: 15px 0;
+  font-weight: bold;
+  text-shadow: 0 0 10px #000;
 }
 
-#restart {
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+button {
   padding: 10px 20px;
   font-size: 1rem;
   border: none;
-  background: #333;
-  color: white;
-  border-radius: 5px;
+  border-radius: 10px;
+  background: white;
+  color: #2575fc;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
 
-#restart:hover {
-  background: #555;
+button:hover {
+  transform: scale(1.1);
+  background: #00eaff;
+  color: white;
+}
+
+/* Winning Animation */
+.winner {
+  background: #00ff99 !important;
+  animation: winnerGlow 1s infinite alternate;
+}
+
+@keyframes winnerGlow {
+  from { box-shadow: 0 0 10px #00ff99; }
+  to { box-shadow: 0 0 25px #00ff99, 0 0 40px #00ffaa; }
 }

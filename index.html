@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic Tac Toe</title>
+  <title>Tic Tac Toe - Advanced</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Tic Tac Toe</h1>
+  <h1 class="title">✨ Tic Tac Toe ✨</h1>
+
+  <div class="scoreboard">
+    <p>X Wins: <span id="xWins">0</span></p>
+    <p>O Wins: <span id="oWins">0</span></p>
+    <p>Draws: <span id="draws">0</span></p>
+  </div>
+
   <div class="game-container">
     <div class="board">
       <div class="cell" data-index="0"></div>
@@ -20,8 +27,11 @@
       <div class="cell" data-index="7"></div>
       <div class="cell" data-index="8"></div>
     </div>
-    <p id="status">Player X's turn</p>
-    <button id="restart">Restart</button>
+    <p id="status">Player X's Turn</p>
+    <div class="buttons">
+      <button id="restart">🔄 Restart</button>
+      <button id="resetScores">🧹 Reset Scores</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
